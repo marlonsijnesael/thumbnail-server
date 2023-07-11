@@ -10,6 +10,7 @@ from rest_framework.parsers import MultiPartParser, FormParser
 
 """
     Views and helper functions to create projects, textures, and thumbnails
+    These views are endpoint for the image API
 """
 
 
