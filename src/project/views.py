@@ -2,8 +2,8 @@ from django.http import HttpResponse, JsonResponse
 from django.utils.decorators import method_decorator
 from django.views.decorators.csrf import csrf_exempt
 
-from .models import TextureImage, Project, Recognizer
-from .serializers import TextureSerializer, ProjectSerializer, RecognizerSerializer
+from .models import TextureImage, Project
+from .serializers import TextureSerializer, ProjectSerializer
 from rest_framework import viewsets, status
 from rest_framework.parsers import MultiPartParser, FormParser
 
@@ -29,33 +29,10 @@ def append_standard_headers(response):
     return response
 
 
-class RecognitionViewSet(viewsets.ModelViewSet):
-    queryset = Recognizer.objects.all()
-    serializer_class = RecognizerSerializer
-    parser_classes = (MultiPartParser, FormParser)
-
-    def create(self, request, *args, **kwargs):
-        response = JsonResponse({'succes!': 'succes'}, status=status.HTTP_201_CREATED, safe=False)
-        response = append_standard_headers(response)
-
-        return response
-
-    @method_decorator(csrf_exempt)
-    def list(self, request, *args, **kwargs):
-        serializer = TextureSerializer(Recognizer.objects.all(), many=True)
-        response = JsonResponse(serializer.data, safe=False)
-        response = append_standard_headers(response)
-
-        return response
-
-
 class TextureViewSet(viewsets.ModelViewSet):
     queryset = TextureImage.objects.all()
     serializer_class = TextureSerializer
     parser_classes = (MultiPartParser, FormParser)
-
-    def get_extra_actions(self):
-        return []
 
     def create(self, request, *args, **kwargs):
         serializer = self.get_serializer(data=request.data)
@@ -85,9 +62,6 @@ class ProjectViewSet(viewsets.ModelViewSet):
     queryset = Project.objects.all()
     serializer_class = ProjectSerializer
     parser_classes = (MultiPartParser, FormParser)
-
-    def get_extra_actions(self):
-        return []
 
     def create(self, request, *args, **kwargs):
         serializer = self.get_serializer(data=request.data)
