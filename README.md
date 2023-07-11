@@ -12,6 +12,12 @@ Proof of concept for a image server using Django.
 - [ ] Make thumbnail size variable
 - [ ] Generate renditions on-demand at any size
 
+## Example:
+### Original:
+![alt text](https://img.freepik.com/free-photo/beautiful-milky-way-night-sky_53876-139825.jpg?w=2000&t=st=1689100095~exp=1689100695~hmac=01e859dbcd61a5b97a6b10f97bdec977b77c937958d0a1ea12d798e35564c1b7)
+
+### Thumbnail:
+![Screenshot](beautiful-milky-way-night-sky_thumb.jpg)
 
 ## how to run
 
