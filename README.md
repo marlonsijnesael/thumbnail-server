@@ -1,5 +1,5 @@
 # thumbnail-server
-Proof of concept for a image server using Django. 
+Proof of concept for a image server using Django REST API and Pillow. 
 
 ## Features:
 
