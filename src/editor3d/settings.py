@@ -78,7 +78,7 @@ WSGI_APPLICATION = 'editor3d.wsgi.application'
 import dj_database_url
 
 # updated
-DATABASES = {"default": dj_database_url.config(default="postgres://marlon:test123@localhost/editor")}
+DATABASES = {"default": dj_database_url.config(default="postgres://[[ user ]]:[[password]]@localhost/[[database name]]")}
 
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
